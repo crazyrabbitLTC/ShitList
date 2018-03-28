@@ -99,7 +99,7 @@ contract WhistleBlower {
         uint _amountToSend;
         _amountToSend = Refundtracker[msg.sender][_hash].amount;
         Refundtracker[msg.sender][_hash].claimed = true;
-        msg.sender.transfer(_amountToSend);
+        //msg.sender.transfer(_amountToSend);
     }
 
 

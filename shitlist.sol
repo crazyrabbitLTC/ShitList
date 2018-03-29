@@ -127,10 +127,9 @@ contract WhistleBlower {
     function areWeInSetup() view public returns(bool){
         if ((ClaimTime == 0) && (ClaimCheckTime == 0))
             return(true);
-
     }
 
-    function withdrawDonation(address _withdrawlAddress, uint _amount) onlyOwner public returns(bool){
+    function withdrawDonation(address _withdrawlAddress, uint _amount) onlyOwner public {
         //Transfer Donations out
         _withdrawlAddress.transfer(_amount);
     }
@@ -149,7 +148,6 @@ contract WhistleBlower {
 
     function setLastCheckedTime(address _address) public {
         LastChecked[_address] = block.timestamp;
-       
     }
 
     function getLastCheckedTime(address _address) view public returns(uint){
@@ -160,9 +158,7 @@ contract WhistleBlower {
     }
 
     function getDetails(string _name, uint _claimnumber) view public returns (string){
-
-        string memory _details = detailsOfClaim[_name][_claimnumber];
-        return(_details);
+        return(detailsOfClaim[_name][_claimnumber]);
     }
 
 }
